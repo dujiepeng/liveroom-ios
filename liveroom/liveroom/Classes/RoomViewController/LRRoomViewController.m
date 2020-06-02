@@ -348,6 +348,8 @@
     self.headerView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.headerView];
 
+    self.speakerVC.roomModel = self.roomModel;
+    
     [self.view addSubview:self.speakerVC.view];
     [self addChildViewController:self.speakerVC];
     
@@ -669,7 +671,7 @@
 #pragma mark - LRSpeakHelperDelegate
 - (void)roomTypeDidChange:(LRRoomType)aType {
     if (_roomModel.roomType == aType) {
-        return;;
+        return;
     }
     _roomModel.roomType = aType;
     [_speakerVC removeFromParentViewController];

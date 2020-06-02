@@ -144,16 +144,15 @@
     self.searchBar.placeholderTextColor = [UIColor grayColor];
     self.searchBar.strokeColor = LRColor_LessBlackColor;
     self.searchBar.strokeWidth = 2;
-    self.searchBar.height = 32;
     LRFindView *findView = [[LRFindView alloc] init];
     self.searchBar.leftView = findView;
     self.searchBar.delegate = self;
     [self.view addSubview:self.searchBar];
     [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(6);
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(5);
         make.left.equalTo(self.view).offset(kPadding);
         make.right.equalTo(self.view).offset(-kPadding);
-        make.height.equalTo(@32);
+        make.height.equalTo(@45);
     }];
     
     self.tableView = [[UITableView alloc] init];

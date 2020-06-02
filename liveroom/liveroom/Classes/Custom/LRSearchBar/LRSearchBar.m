@@ -20,7 +20,6 @@
 {
     self = [super init];
     if (self) {
-        [self _setupSubviews];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldTextDidChange) name:UITextFieldTextDidChangeNotification object:nil];
     }
@@ -33,6 +32,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)layoutSubviews {
+    [self _setupSubviews];
+}
+
 #pragma mark - Subviews
 - (void)_setupSubviews
 {
@@ -40,6 +43,7 @@
     self.textField.delegate = self;
     self.textField.font = [UIFont systemFontOfSize:16];
     self.textField.returnKeyType = UIReturnKeyDone;
+
     UIButton *clear = [self.
                        textField valueForKey:@"_clearButton"];
     [clear setImage:[UIImage imageNamed:@"delete_input"] forState:UIControlStateNormal];
@@ -49,9 +53,10 @@
     [self.textField strokeWithColor:LRStrokeLowBlack];
     [self addSubview:self.textField];
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self);
+        make.top.equalTo(self);
         make.left.equalTo(self);
         make.right.equalTo(self);
+        make.bottom.equalTo(self);
     }];
     
     UIImageView *leftView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
@@ -76,7 +81,6 @@
 - (void)setPlaceholderTextColor:(UIColor *)placeholderTextColor
 {
     _placeholderTextColor = placeholderTextColor;
-//    [self.textField setValue:_placeholderTextColor forKeyPath:@"_placeholderLabel.textColor"];
 }
 
 - (void)setStrokeWidth:(CGFloat)strokeWidth

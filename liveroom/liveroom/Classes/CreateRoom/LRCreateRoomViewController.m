@@ -311,7 +311,7 @@
 #pragma mark UITapGestureRecognizer
 - (void)speakerTypeTap
 {
-    LRAlertController *alert = [LRAlertController showTipsAlertWithTitle:@"提示" info:@"切换房间互动模式会初始化麦序。临场模式中，\n主播可以切换模式形成小范围发言；主持模式为\n当前只有管理员可以发言；抢麦模式为当前只有\n管理员可以发言；互动模式为全部主播均可发言。\n请确认切换的模式。"];
+    LRAlertController *alert = [LRAlertController showTipsAlertWithTitle:@"提示" info:@"切换房间互动模式会初始化麦序。临场模式中，\n主播可以切换模式形成小范围发言；主持模式为\n当前只有管理员可以发言；抢麦模式为当前只有\n管理员可以发言；自由麦模式为全部主播均可发言。\n请确认切换的模式。"];
     
     LRAlertAction *communicationAction = [LRAlertAction alertActionTitle:@"自由麦模式 Communication"
                                                                 callback:^(LRAlertController * _Nonnull alertController)
